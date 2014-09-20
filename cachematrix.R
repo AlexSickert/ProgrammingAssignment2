@@ -1,5 +1,3 @@
-## Put comments here that give an overall description of what your
-## functions do
 
 ## This function creates a special "matrix" object that can cache its inverse.
 
@@ -28,12 +26,12 @@ makeCacheMatrix <- function(x = matrix()) {
 ## This function computes the inverse of the special "matrix" returned by makeCacheMatrix above. 
 ## If the inverse has already been calculated (and the matrix has not changed), then the cachesolve should retrieve the inverse from the cache.
 
-
 cacheSolve <- function(x, ...) {
-  ## Return a matrix that is the inverse of 'x'
-  
+
   # get the inverse from the cache
   inverse <- x$getInverse()
+  # the set() function in makeCacheMatrix() sets the inverse to NULL. This means that if the matrix changes, the previous inverse gets remove and set to NULL
+  # therefore the condition "and the matrix has not changed" of the assignment task is alos fulfilled
   # check if our attempt to pull the inverse from the cache was successfull or if it does not exists
   if(!is.null(inverse)) {
     message("getting cached data")
